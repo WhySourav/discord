@@ -1,3 +1,5 @@
 pip install discord.py 
 pip install mcstatus
 pip install dotenv
+pip install flask 
+
