@@ -3,8 +3,25 @@ from discord.ext import tasks,commands
 from dotenv import load_dotenv
 from mcstatus import JavaServer
 import os
-
+from flask import Flask 
+from threading import Thread 
 load_dotenv()
+
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Bot is alive", 200
+
+def run_web():
+    app.run(host="0.0.0.0", port=3000)
+
+Thread(target=run_web).start()
+
+
+
+
 intents = discord.Intents.all()
 intents.message_content = True
 intents.members= True
